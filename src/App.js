@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
-import Form from './Form';
-import Summary from './Summary';
-import BuildSummary from './actions';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Form from './components/form';
+import Summary from './components/summary';
+import BuildSummary from './services/actions';
 
 class App extends Component {
   state = {}

@@ -1,9 +1,11 @@
 
 import moment from 'moment';
 
-const GetVehicles = (price) => fetch(`https://www.arnoldclark.com/used-cars/search.json?payment_type=monthly&amp;min_price=${price}&amp;max_price=${price}&amp;sort_order=monthly_payment_up`, {
-    accept: "application/json"
-}).then(result => result.status === 200 ? result.json : null);
+const GetVehicles = (price) => fetch(`https://www.arnoldclark.com/used-cars/search.json?payment_type=monthly&amp;min_price=${price}&amp;max_price=${price}&amp;sort_order=monthly_payment_up`,
+    {
+        accept: "application/json"
+    }).then(result => result.status === 200 ? result.json() : null)
+    .catch(e => console.log(e));
 
 const getFirstMonday = (date) => {
     let startDate = date.startOf('month').isoWeekday(8);
@@ -27,16 +29,16 @@ export default async (form) => {
         paymentDate.add(1, 'month');
     }
 
+    // Add fees to payment schedule
     const arrangementFee = process.env.arrangementFee || 88;
     const completionFee = process.env.completionFee || 20;
 
     schedule[0].value = (monthlyPayment + arrangementFee).toFixed(2);
     schedule[schedule.length - 1].value = (monthlyPayment + completionFee).toFixed(2);
 
-    // const vehiclesSearch = await GetVehicles(monthlyPayment);
-    // const cars = vehiclesSearch ? vehiclesSearch.searchResults.slice(0, 6).map(result => result.title.name) : [];
-
-    const cars = [];
+    // TODO: This currently fails due to a CORS error. 
+    const vehiclesSearch = await GetVehicles(monthlyPayment);
+    const cars = vehiclesSearch ? vehiclesSearch.searchResults.slice(0, 6).map(result => result.title.name) : [];
 
     return {
         summary: {

@@ -1,3 +1,26 @@
+## Arnold Clark Test Application
+Written to meet the following requirements:
+
+Arnold Clark wants to introduce a new interest free car loan.
+
+* Create a web application that will allow one of our Product Consultants to produce a
+payment schedule for the new loan scheme.
+* The application should allow the Product Consultant to input a vehicle price, deposit
+amount, delivery date and select from 1, 2 or 3 year finance options.
+* There is a minimum 15% deposit.
+* For the first month add an £88 arrangement fee, the last a £20 completion fee. These values
+should be easily configurable.
+* Payments are due on the first Monday of each month, beginning the month after delivery.
+* The completed application should calculate and display a quote showing a summary of the
+loan and a payment schedule showing monthly payments with date and amount due.
+* Using this API display the top six vehicles which may be affordable based on the monthly
+payments
+https://www.arnoldclark.com/used-
+cars/search.json?payment_type=monthly&amp;min_price=100&amp;max_price=150&amp;sort_order=mo
+nthly_payment_up
+This will return a JSON response. We&#39;re most interested in the `searchResults` array.
+* Your code should reflect clean coding principles and contain tests.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -37,32 +60,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
